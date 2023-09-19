@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Exercício 7 e 8</title>
+  <style>
+    /* Estilizando o botão */
+    button {
+      background-color: purple;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: darkpurple;
+    }
+
+    /* Estilizando o parágrafo */
+    p {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <button onclick="adicionarTexto()">Adicionar Texto</button>
+  <p id="paragrafo"></p>
+
+  <script>
+    function adicionarTexto() {
+      const textoCompleto = "Bem-vindo ao maravilhoso mundo do desenvolvimento web!";
+      const palavras = textoCompleto.split(' '); // Divide o texto em palavras
+      const paragrafo = document.getElementById("paragrafo");
+      paragrafo.innerText = ''; // Limpa o conteúdo anterior
+
+      let index = 0;
+
+      const interval = setInterval(() => {
+        paragrafo.innerText += palavras[index] + ' '; // Adiciona a palavra e um espaço
+        index++;
+
+        if (index === palavras.length) {
+          clearInterval(interval); // Parar o intervalo após a exibição de todas as palavras
+        }
+      }, 200); // Ajuste o intervalo de tempo (em milissegundos) para controlar a "velocidade" de exibição das palavras
+    }
+  </script>
+</body>
+</html>
